@@ -1,0 +1,24 @@
+{
+  "name": "graphql-anywhere-mongodb-example",
+  "version": "1.0.0",
+  "description": "Sample app that uses graphql-anywhere-mongodb",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dflor003/graphql-anywhere-mongodb-example.git"
+  },
+  "keywords": [
+    "graphql",
+    "mongodb",
+    "graphql-anywhere"
+  ],
+  "author": "Danil Flores <dflor003@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dflor003/graphql-anywhere-mongodb-example/issues"
+  },
+  "homepage": "https://github.com/dflor003/graphql-anywhere-mongodb-example#readme"
+}
