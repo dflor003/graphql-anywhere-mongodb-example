@@ -2,11 +2,12 @@
   "name": "graphql-anywhere-mongodb-example",
   "version": "1.0.0",
   "description": "Sample app that uses graphql-anywhere-mongodb",
-  "main": "index.js",
+  "main": "dist/server.js",
   "private": true,
   "scripts": {
     "clean": "rimraf dist",
-    "build": "tsc -p .",
+    "build": "npm run clean && tsc -p .",
+    "start": "npm run build && node ./dist/server.js",
     "test": "echo No tests"
   },
   "repository": {
@@ -29,6 +30,7 @@
     "@types/graphql": "^0.9.3",
     "body-parser": "^1.17.2",
     "express": "^4.15.3",
+    "graphiql": "^0.11.2",
     "graphql": "^0.10.3",
     "tslib": "~1.7.x"
   },

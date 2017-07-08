@@ -1,0 +1,15 @@
+version: '2'
+services:
+  app:
+    build: .
+    restart: always
+    environment:
+      PORT: '3000'
+      APP_MONGO: 'mongodb://db:27107/test-db'
+    ports:
+      - 3000
+
+  db:
+    image: mongo:3.4.6
+    ports:
+      - 27017:27017
