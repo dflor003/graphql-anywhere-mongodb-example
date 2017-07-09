@@ -1,3 +1,6 @@
+const GRAPHIQL_VERSION = '0.11.2';
+
+export const GraphiQLHtml = `
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,13 +16,11 @@
     }
   </style>
 
-  <script src="//cdn.jsdelivr.net/es6-promise/4.0.5/es6-promise.auto.min.js"></script>
+  <link href="//cdn.jsdelivr.net/npm/graphiql@${GRAPHIQL_VERSION}/graphiql.css" rel="stylesheet" />
   <script src="//cdn.jsdelivr.net/fetch/0.9.0/fetch.min.js"></script>
   <script src="//cdn.jsdelivr.net/react/15.4.2/react.min.js"></script>
   <script src="//cdn.jsdelivr.net/react/15.4.2/react-dom.min.js"></script>
-
-  <link rel="stylesheet" href="/node_modules/graphiql/graphiql.css" />
-  <script src="/node_modules/graphiql/graphiql.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/graphiql@${GRAPHIQL_VERSION}/graphiql.min.js"></script>
 
 </head>
 <body>
@@ -115,3 +116,4 @@
 </script>
 </body>
 </html>
+`;
