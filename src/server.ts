@@ -8,7 +8,7 @@ async function start() {
 
   // Endpoint will run incoming graphql query into mongo
   // query and return the results
-  app.post('/graphql', mongoGraphql({
+  app.use('/graphql', mongoGraphql({
     uri: mongoUri,
     graphiql: true
   }));
