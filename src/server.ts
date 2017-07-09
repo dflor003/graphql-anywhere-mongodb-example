@@ -1,15 +1,10 @@
 import * as express from 'express';
-import * as bodyParser from 'body-parser';
-import * as path from 'path';
-import { mongoGraphql } from './middleware';
+import mongoGraphql from './middleware';
 
 async function start() {
   const app = express();
   const port = parseInt(process.env.PORT || '3000', 10);
   const mongoUri = process.env.APP_MONGO;
-
-  // Serve the root as a static site to access graphiql
-  app.use(express.static(path.resolve('.')));
 
   // Endpoint will run incoming graphql query into mongo
   // query and return the results
