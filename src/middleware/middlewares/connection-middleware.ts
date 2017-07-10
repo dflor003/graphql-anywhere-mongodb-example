@@ -2,10 +2,10 @@ import graphqlClient from 'graphql-anywhere-mongodb';
 import { MongoGraphQLOptions } from '../options';
 import { Handler } from 'express';
 import { handleAsync } from '../handle-async';
-import { MongoGraphQLClient } from 'graphql-anywhere-mongodb';
-import { Db } from 'mongodb';
+import { MongoGraphQLClient, GraphQLMongoClientOptions } from 'graphql-anywhere-mongodb';
+import { Db, MongoClientOptions } from 'mongodb';
 
-export function connectToMongoMiddleware(options: MongoGraphQLOptions): Handler {
+export function connectToMongoMiddleware(options: MongoGraphQLOptions & GraphQLMongoClientOptions): Handler {
   // Setup options
   const mongoUri = options.uri || options.url;
   const connection = options.connection;
@@ -17,20 +17,25 @@ export function connectToMongoMiddleware(options: MongoGraphQLOptions): Handler 
   }
 
   return handleAsync(async (req, res, next) => {
-    (<any>req)['__mongoGraphQLClient'] = client || (client = await acquireClient(mongoUri, connection));
+    (<any>req)['__mongoGraphQLClient'] = client || (client = await acquireClient(mongoUri, connection, options, options.mongoClientOptions));
     next();
   });
 }
 
-async function acquireClient(mongoUri: string, connection: Db): Promise<MongoGraphQLClient> {
+async function acquireClient(
+  mongoUri: string,
+  connection: Db,
+  options: GraphQLMongoClientOptions,
+  clientOptions: MongoClientOptions,
+): Promise<MongoGraphQLClient> {
   // Connect to URI directly
   if (mongoUri) {
-    return await graphqlClient.forUri(mongoUri);
+    return await graphqlClient.forUri(mongoUri, { ...clientOptions, ...options });
   }
 
   // Use pre existing client
   if (connection) {
-    return graphqlClient.forConnection(connection);
+    return graphqlClient.forConnection(connection, options);
   }
 
   // Could not acquire connection, fail the request

@@ -6,11 +6,10 @@ async function start() {
   const port = parseInt(process.env.PORT || '3000', 10);
   const mongoUri = process.env.APP_MONGO;
 
-  // Endpoint will run incoming graphql query into mongo
-  // query and return the results
   app.use('/graphql', mongoGraphql({
     uri: mongoUri,
-    graphiql: true
+    graphiql: true,
+    whitelist: ['restaurants'],
   }));
 
   return app.listen(port);
