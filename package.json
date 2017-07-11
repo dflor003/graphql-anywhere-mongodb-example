@@ -8,7 +8,9 @@
     "clean": "rimraf dist",
     "build": "npm run clean && tsc -p .",
     "start": "node ./dist/server.js",
-    "dev": "npm run build && node -r ./node_modules/dotenv/config ./dist/server.js",
+    "start:docker": "npm run docker:mongo && npm run start:dev",
+    "start:dev": "npm run build && node -r ./node_modules/dotenv/config ./dist/server.js",
+    "docker:mongo": "docker-compose up -d",
     "test": "echo No tests"
   },
   "repository": {
