@@ -32,9 +32,8 @@
     "body-parser": "^1.17.2",
     "debug": "^2.6.8",
     "express": "^4.15.3",
-    "graphiql": "^0.11.2",
-    "graphql": "^0.10.3",
     "graphql-anywhere-mongodb": "^0.2.0",
+    "graphql-anywhere-mongodb-express": "^0.1.0",
     "tslib": "~1.7.x"
   },
   "devDependencies": {
