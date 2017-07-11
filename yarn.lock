@@ -243,9 +243,9 @@ glob@^7.0.5:
     once "^1.3.0"
     path-is-absolute "^1.0.0"
 
-graphql-anywhere-mongodb-express@^0.1.0:
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/graphql-anywhere-mongodb-express/-/graphql-anywhere-mongodb-express-0.1.0.tgz#d67e173c64b73a17d8f05d39c806abaacd15c463"
+graphql-anywhere-mongodb-express@^0.1.1:
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/graphql-anywhere-mongodb-express/-/graphql-anywhere-mongodb-express-0.1.1.tgz#92f106211eb86aa9006eb072545ea15126e91d06"
   dependencies:
     "@types/mongodb" "^2.2.7"
     body-parser "^1.17.2"
